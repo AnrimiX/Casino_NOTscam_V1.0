@@ -170,6 +170,9 @@ h2 {
   color: #f2117a;
   margin-top: 20px;
 }
+h3 { 
+  color: #f2117a;
+}
 
 h4 {
   color: #f5d3e3;
@@ -214,6 +217,7 @@ h4 {
   font-weight: bold;
   cursor: pointer;
 }
+
 
 
 
