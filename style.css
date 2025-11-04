@@ -83,6 +83,7 @@ button:hover {
     margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
+    color: #ffcc66;
 }
 
 .legend {
@@ -102,6 +103,7 @@ button:hover {
     width: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.2s;
+    box-shadow: 12px 12px 2px 1px #fc90c3;
 }
 
 .legend div:hover {
@@ -119,7 +121,7 @@ button:hover {
 .legend span {
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
+    color: #ff0080;
 }
 
 .win {
@@ -212,6 +214,7 @@ h4 {
   font-weight: bold;
   cursor: pointer;
 }
+
 
 
 
