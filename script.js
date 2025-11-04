@@ -1,87 +1,63 @@
-const items = [
-    { src: "img/hamster.jpg", name: "Хомяк", mult: 2 },
-    { src: "img/knight.jpg", name: "Рыцарь", mult: 3 },
-    { src: "img/shark.jpg", name: "Акула", mult: 4 }
+const i = [
+  { src: "img/hamster.jpg", mult: 2 },
+  { src: "img/knight.jpg", mult: 3 },
+  { src: "img/shark.jpg", mult: 4 }
 ];
+const r = [r1, r2, r3],
+  b = spin,
+  o = out,
+  s = new Audio('audio/bem.mp3');
+s.loop = 1;
+s.play();
 
-const reels = [r1, r2, r3];
-const spinBtn = spin;
-const out = document.getElementById('out');
-
-// звук вращения играет постоянно
-const spinSound = new Audio('audio/bem.mp3');
-spinSound.loop = true;
-spinSound.play(); // сразу запускаем при загрузке страницы
-
-// звук выигрыша
-const winSound = new Audio('audio/win.mp3');
-const loseSound = new Audio('audio/lose.mp3');
-
-function getRandomItem() {
-    return items[Math.floor(Math.random() * items.length)];
-}
-
-function createTrack(reel, finalItem) {
-    reel.innerHTML = '';
-    const track = document.createElement('div');
-    track.style.display = 'flex';
-    track.style.flexDirection = 'column';
-    reel.appendChild(track);
-
-    const spinCount = 15 + Math.floor(Math.random() * 10);
-    for (let i = 0; i < spinCount; i++) {
-        const img = document.createElement('img');
-        img.src = getRandomItem().src;
-        track.appendChild(img);
+const w = new Audio('audio/win.mp3'),
+  l = new Audio('audio/lose.mp3'),
+  g = () => i[Math.random() * i.length | 0],
+  c = (e, f) => {
+    e.innerHTML = '';
+    let d = document.createElement('div');
+    d.style.display = 'flex';
+    d.style.flexDirection = 'column';
+    e.appendChild(d);
+    for (let j = 15 + Math.random() * 10 | 0, m; j--;) {
+      m = document.createElement('img');
+      m.src = g().src;
+      d.appendChild(m);
     }
-
-    const finalImg = document.createElement('img');
-    finalImg.src = finalItem.src;
-    track.appendChild(finalImg);
-
-    return track;
-}
-
-function spinReel(reel, delay = 0) {
-    return new Promise(resolve => {
-        const finalItem = getRandomItem();
-        const track = createTrack(reel, finalItem);
-
-        const totalHeight = track.scrollHeight - reel.clientHeight;
-
-        track.style.transition = 'transform 1.5s cubic-bezier(0.25, 1, 0.5, 1)';
-        track.style.transform = `translateY(-${totalHeight}px)`;
-
-        setTimeout(() => {
-            track.addEventListener('transitionend', function handler() {
-                track.removeEventListener('transitionend', handler);
-                reel.innerHTML = `<img src="${finalItem.src}">`;
-                resolve(finalItem);
-            });
-        }, delay);
-    });
-}
-
-async function spinAll() {
-    spinBtn.disabled = true;
-    out.textContent = '🎰 Крутим...';
-
-    const results = await Promise.all(reels.map((r, i) => spinReel(r, i * 200)));
-
-    // проверка совпадений
-    if (results[0].src === results[1].src && results[1].src === results[2].src) {
-        out.textContent = `🎉 Комбо! Вы выиграли ${results[0].mult}×!`;
-        reels.forEach(r => r.querySelector('img').classList.add('win'));
-        winSound.currentTime = 0;
-        winSound.play();
+    m = document.createElement('img');
+    m.src = f.src;
+    d.appendChild(m);
+    return d;
+  },
+  p = (e, q = 0) => new Promise(z => {
+    let f = g(),
+      d = c(e, f),
+      h = d.scrollHeight - e.clientHeight;
+    d.style.transition = 'transform 1.5s cubic-bezier(0.25,1,0.5,1)';
+    d.style.transform = `translateY(-${h}px)`;
+    setTimeout(() => {
+      d.addEventListener('transitionend', function n() {
+        d.removeEventListener('transitionend', n);
+        e.innerHTML = `<img src="${f.src}">`;
+        z(f);
+      });
+    }, q);
+  }),
+  a = async () => {
+    b.disabled = 1;
+    o.textContent = '🎰 Крутим...';
+    let t = await Promise.all(r.map((e, q) => p(e, q * 200)));
+    if (t[0].src === t[1].src && t[1].src === t[2].src) {
+      o.textContent = `🎉 Комбо! Вы выиграли ${t[0].mult}×!`;
+      r.forEach(e => e.querySelector('img').classList.add('win'));
+      w.currentTime = 0;
+      w.play();
     } else {
-        out.textContent = "😢 Попробуй ещё!";
-        reels.forEach(r => r.querySelector('img').classList.remove('win'));
-        loseSound.play();
+      o.textContent = "😢 Попробуй ещё!";
+      r.forEach(e => e.querySelector('img').classList.remove('win'));
+      l.play();
     }
+    b.disabled = 0;
+  };
 
-    spinBtn.disabled = false;
-}
-
-spinBtn.addEventListener('click', spinAll);
-
+b.onclick = a;
