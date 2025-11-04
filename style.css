@@ -1,20 +1,33 @@
+header {
+  width: 97%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #111;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
 body {
-    background: #111;
-    color: #fff;
-    font-family: sans-serif;
-    text-align: center;
-    padding-top: 60px;
+  background: #111;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 60px;
 }
 
 /* Контейнер для промо и слота */
 .container {
-    display: flex;
-    flex-direction: row;
-    /* промо слева, слот справа */
-    justify-content: center;
-    align-items: flex-start;
-    gap: 60px;
-    padding: 40px;
+  display: flex;
+  flex-direction: row-reverse; 
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 40px;
 }
 
 /* Слот */
@@ -127,38 +140,37 @@ button:hover {
 
 /* Промо-блок слева */
 .promo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    width: 600px;
-    background-color: #363535;
-    padding: 20px;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 12px 12px 2px 1px #fc90c3;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: stretch; 
+  width: 600px; 
+  background-color: #363535;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 12px 12px 2px 1px #fc90c3;
 }
-
 .top h2 {
-    color: #ff0080;
-    text-align: justify;
+  color: #ff0080;
+  text-align: justify; 
 }
 
 .bottom p {
-    color: #ffcc66;
-    text-align: justify;
-    margin-top: 20px;
+  color: #ffcc66;
+  text-align: justify; 
+  margin-top: 20px;
 }
 
+
 /* Заголовки */
-h2 {
-    color: #f2117a;
-    margin-top: 20px;
+h2 { 
+  color: #f2117a;
+  margin-top: 20px;
 }
 
 h4 {
-    color: #f5d3e3;
-
+  color: #f5d3e3;
 }
 
 .logo img {
@@ -167,11 +179,9 @@ h4 {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .logo img:hover {
   transform: scale(1.1);
 }
-
 
 .modal {
   display: none; 
@@ -202,18 +212,6 @@ h4 {
   font-weight: bold;
   cursor: pointer;
 }
-header {
-  width: 97%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: #111;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
+
 
 
