@@ -202,3 +202,18 @@ h4 {
   font-weight: bold;
   cursor: pointer;
 }
+header {
+  width: 97%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #111;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+
