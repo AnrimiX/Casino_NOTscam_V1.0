@@ -24,6 +24,7 @@ body {
 .container {
   display: flex;
   justify-content: center;
+  flex-direction: row-reverse;
   align-items: flex-start;
   gap: 60px;
   padding: 40px;
@@ -216,6 +217,7 @@ h4 {
   font-weight: bold;
   cursor: pointer;
 }
+
 
 
 
