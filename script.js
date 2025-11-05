@@ -61,3 +61,5 @@ const w = new Audio('audio/win.mp3'),
   };
 
 b.onclick = a;
+
+# V1.0 By AnrimiX_
