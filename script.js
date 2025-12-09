@@ -45,7 +45,7 @@ const w = new Audio('audio/win.mp3'),
   }),
   a = async () => {
     b.disabled = 1;
-    o.textContent = '🎰 Крутим...';
+    o.textContent = '🎰 Крутим..';
     let t = await Promise.all(r.map((e, q) => p(e, q * 200)));
     if (t[0].src === t[1].src && t[1].src === t[2].src) {
       o.textContent = `🎉 Комбо! Вы выиграли ${t[0].mult}×!`;
